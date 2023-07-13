@@ -32,6 +32,27 @@ attributes of flask.request:
 flask.request.get_data() enables us to access data (byte format) sent via HTTP POST request
 """
 
+# Overview of flask
+"""
+user/browser - flask.request -> server
+    GET req:
+        request.args (query string)
+        request.remote_addr (IP addresses)
+    POST req:
+        curl commands (send data)
+        flask.request.get_data()
+        
+server - flask.Response -> user/browser
+    Response(
+        content of the page, 
+        status: 429,
+        headers (metadata): {
+            Content-Type: default is text/html, others could be text/plain, image/png, image/svg+xml
+            Retry-After (429)
+        }
+    )
+"""
+
 temps = [80, 85, 83, 90]
 
 app = flask.Flask("my dashboard")
